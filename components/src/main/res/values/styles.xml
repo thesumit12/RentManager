@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="NoBackgroundLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="WrappedLayoutStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="GlobalLayoutStyle" parent="NoBackgroundLayoutStyle">
+        <item name="android:background">@color/colorPrimaryDark</item>
+    </style>
+
+    <!-- style for the App permission custom screen -->
+    <style name="customAppBarTitleAppearance">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/eighteen</item>
+        <item name="android:lineSpacingExtra">@dimen/eighteen</item>
+    </style>
+
+    <style name="emptyTextStyle" parent="WrappedLayoutStyle">
+        <item name="android:textAppearance">@style/emptyTextAppearance</item>
+        <item name="android:layout_marginTop">@dimen/one_hundred_eighty</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+    </style>
+
+    <style name="emptyTextAppearance" parent="idTextAppearance">
+        <item name="android:textSize">@dimen/eighteen</item>
+        <item name="android:lineSpacingExtra">@dimen/eighteen</item>
+    </style>
+
+    <style name="idTextAppearance">
+        <item name="android:textSize">@dimen/twelve</item>
+        <item name="android:textColor">@color/brown_grey</item>
+        <item name="android:lineSpacingExtra">@dimen/fifteen</item>
+    </style>
+
+    <style name="titleStyle">
+        <item name="android:textAppearance">@style/titleTextAppearance1</item>
+        <item name="android:layout_marginStart">@dimen/eighteen</item>
+        <item name="android:layout_marginEnd">@dimen/eighteen</item>
+        <item name="android:layout_marginTop">@dimen/eight</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+    </style>
+
+    <style name="RegularTextWhiteSmall" parent="DefaultTextAppearance">
+        <item name="android:textSize">@dimen/eighteen</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="titleTextAppearance1" parent="RegularTextWhiteSmall">
+        <item name="android:lineSpacingExtra">@dimen/four_and_half</item>
+    </style>
+
+    <style name="DefaultTextAppearance" parent="android:TextAppearance">
+        <item name="android:textStyle">normal</item>
+    </style>
+</resources>

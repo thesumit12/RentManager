@@ -1,0 +1,24 @@
+apply from: "../gradle/submodule.gradle"
+
+android {
+    dataBinding {
+        enabled true
+    }
+}
+dependencies {
+
+    // Android support libraries
+    sharedSupportLibraries dependencies
+
+    // Coroutine dependencies
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1"
+    implementation 'androidx.paging:paging-runtime:latest.release'
+    implementation "com.google.code.gson:gson:latest.release"
+
+    // Glide dependencide
+    implementation 'com.github.bumptech.glide:glide:latest.release'
+    kapt 'com.github.bumptech.glide:compiler:latest.release'
+
+    implementation project(path: ":logging")
+}

@@ -1,0 +1,18 @@
+codecov:
+  notify:
+    require_ci_to_pass: no
+
+coverage:
+  precision: 3  # 2 = xx.xx%, 0 = xx%
+  round: nearest # default down
+  range: 85...100 # default 70...90. red...green
+
+  status:
+    project: yes
+    patch: yes
+    changes: yes
+
+comment:
+  layout: "header, diff"
+  behavior: default
+  require_changes: no

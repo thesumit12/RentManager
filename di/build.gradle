@@ -1,0 +1,20 @@
+apply from: "../gradle/activity.gradle"
+
+dependencies {
+
+    implementation project(path: ':database')
+    implementation project(path: ':components')
+    implementation project(path: ':common')
+
+    if(fullBuild) {
+        //implementation project(path: ':chat')
+        //implementation project(path: ':lists')
+        //implementation project(path: ':map')
+        //implementation project(path: ':authentication')
+        //implementation project(path: ':groups')
+        //implementation project(path: ':profile')
+        //implementation project(path: ':search')
+    } else {
+        // include your local dependencies
+    }
+}

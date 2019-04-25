@@ -1,0 +1,6 @@
+buildCache {
+    local {
+        enabled = true
+    }
+}
+include ':app', ':logging', ':di', ':common', ':model', ':components', ':database'

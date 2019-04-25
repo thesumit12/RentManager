@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   style="@style/GlobalLayoutStyle">
+
+    <TextView
+            android:id="@+id/title"
+            android:text="@string/grant_permission"
+            style="@style/customAppBarTitleAppearance"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/nine"
+            android:layout_marginTop="@dimen/nine"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            android:layout_marginTop="@dimen/eighteen"
+            android:layout_marginBottom="@dimen/eighteen"
+            app:layout_constraintBottom_toTopOf="@+id/grant_description">
+
+        <TextView
+                android:id="@+id/grant_permission"
+                android:text="@string/msg_grant_mandatory_permission"
+                style="@style/titleStyle"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+    </ScrollView>
+
+    <TextView
+            android:id="@+id/grant_description"
+            android:text="@string/msg_grant_mandatory_permission"
+            style="@style/emptyTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="18dp"
+            android:layout_marginTop="@dimen/eighteen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btn_grant" />
+
+    <Button
+            android:id="@+id/btn_grant"
+            android:text="@string/grant"
+            style="@style/customAppBarTitleAppearance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@color/white"
+            android:layout_marginBottom="@dimen/eighteen"
+            android:textColor="@color/colorDarkGrey" />
+</androidx.constraintlayout.widget.ConstraintLayout>

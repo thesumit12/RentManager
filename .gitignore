@@ -1,0 +1,15 @@
+.idea
+.gradle
+**/build
+**/*.iml
+*.iml
+out
+local.properties
+infer-out
+**/jacoco.exec
+.DS_Store
+app/.DS_Store
+authentication/.DS_Store
+chat/.DS_Store
+map/.DS_Store
+search/.DS_Store

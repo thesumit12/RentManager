@@ -1,0 +1,5 @@
+apply from: "../gradle/submodule.gradle"
+
+dependencies {
+    implementation project(path: ':model')
+}

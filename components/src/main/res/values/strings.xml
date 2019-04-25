@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">components</string>
+    // permissions
+    <string name="grant_permission">Grant Permission</string>
+    <string name="msg_grant_mandatory_permission">This permission is mandatory to use this application.</string>
+    <string name="grant">Grant</string>
+</resources>

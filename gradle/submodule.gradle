@@ -1,0 +1,93 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: "../gradle/jacoco.gradle"
+
+android {
+    compileSdkVersion 28
+
+
+    defaultConfig {
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+        release {
+            testCoverageEnabled true
+            minifyEnabled false
+        }
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+        unitTests.all{
+            testLogging {
+                events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+            }
+        }
+
+        // execution 'ANDROIDX_TEST_ORCHESTRATOR'
+    }
+
+    lintOptions {
+        quiet true
+        xmlReport false
+        checkDependencies false
+        abortOnError true
+        checkAllWarnings true
+        warningsAsErrors true
+
+        disable "NewerVersionAvailable" // Since we are using latest.release, this check fails.
+        disable "GradleDependency"      //  Since we are using latest.release, this check fails.
+        disable "RequiredSize"      // lint not able to resolve size from styles.
+        disable "VectorPath"      // Long vector paths are to be resolved by UI team
+        disable "SelectableText" // This makes adding isSelectable to TextView mandatory. which is not required.
+        disable "Overdraw" // It is creating false alarm with notification as notification is dynamic
+    }
+
+
+}
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 240, 'hours'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk$rootProject.kotlinJDKVersion:latest.release"
+    testImplementation 'junit:junit:latest.release'
+    androidTestImplementation 'androidx.test:runner:latest.release'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:latest.release'
+    androidTestImplementation "androidx.test:rules:latest.release"
+    testImplementation "com.nhaarman:mockito-kotlin:latest.release" , { exclude group: 'org.jetbrains.kotlin' }
+    androidTestImplementation "com.nhaarman:mockito-kotlin:latest.release" , { exclude group: 'org.jetbrains.kotlin' }
+    // Kotlin-Koin dependencies
+    implementation "org.koin:koin-android:$rootProject.kotlinKoinVersion"
+    implementation "org.koin:koin-androidx-viewmodel:$rootProject.kotlinKoinVersion"
+    implementation "org.jetbrains.anko:anko-commons:latest.release"
+
+    // Rx Dependencies
+    implementation "io.reactivex.rxjava2:rxjava:latest.release"
+    implementation "io.reactivex.rxjava2:rxandroid:latest.release"
+    implementation "io.reactivex.rxjava2:rxkotlin:latest.release"
+
+    testImplementation "org.powermock:powermock-core:latest.release"
+    testImplementation "org.powermock:powermock-module-junit4:latest.release"
+    testImplementation "org.powermock:powermock-api-mockito2:latest.release"
+
+    testImplementation "org.mockito:mockito-inline:latest.release"
+    testImplementation "org.koin:koin-test:$rootProject.kotlinKoinVersion"
+
+    androidTestImplementation "org.mockito:mockito-inline:latest.release"
+    androidTestImplementation "org.koin:koin-test:$rootProject.kotlinKoinVersion"
+}

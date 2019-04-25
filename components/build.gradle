@@ -1,0 +1,26 @@
+apply from: "../gradle/activity.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+kapt {
+    useBuildCache = true
+}
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'src/main/libs')
+    implementation project(path: ':common')
+    implementation project(path: ':model')
+    //implementation project(path: ':database')
+    //implementation project(path: ':network')
+// for Glide
+    implementation "com.github.bumptech.glide:glide:latest.release"
+// Glide v4 uses this new annotation processor
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    kapt "com.github.bumptech.glide:compiler:latest.release"
+
+    implementation 'androidx.cardview:cardview:latest.release'
+    implementation 'androidx.palette:palette:latest.release'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
+}
