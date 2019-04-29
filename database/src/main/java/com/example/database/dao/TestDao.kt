@@ -1,5 +1,6 @@
 package com.example.database.dao
 
+import androidx.room.Dao
 import androidx.room.Query
 import com.example.database.entity.TestEntity
 
@@ -8,6 +9,7 @@ import com.example.database.entity.TestEntity
  * @author: Sumit Lakra
  * @date: 04/25/2019
  */
+@Dao
 abstract class TestDao: RoomBaseDao<TestEntity>() {
 
     /**
@@ -15,7 +17,6 @@ abstract class TestDao: RoomBaseDao<TestEntity>() {
      * @author Sumit Lakra
      * @date 04/25/2019
      */
-    @Query("SELECT id, name FROM table_name WHERE name = :name " +
-            "ORDER BY triggered_on DESC LIMIT 1")
+    @Query("SELECT id, name FROM table_name WHERE name = :name ")
     abstract fun testFunction(name: String): TestEntity
 }
