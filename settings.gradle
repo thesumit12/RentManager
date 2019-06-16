@@ -3,4 +3,4 @@ buildCache {
         enabled = true
     }
 }
-include ':app', ':logging', ':di', ':common', ':model', ':components', ':database'
+include ':app', ':logging', ':di', ':common', ':model', ':components', ':database', ':plot'

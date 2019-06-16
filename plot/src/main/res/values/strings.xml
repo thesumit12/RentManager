@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Plot</string>
+    <string name="add_room">Add Room</string>
+    <string name="name">Name</string>
+    <string name="empty_error">Value Required!!</string>
+    <string name="comments">Comments</string>
+    <string name="age">Age</string>
+    <string name="mobile_no">Mobile Number</string>
+    <string name="total_members">Total Members</string>
+    <string name="adults">Adults</string>
+    <string name="room_rent">Room Rent</string>
+    <string name="date">Joining Date</string>
+    <string name="balance">Balance</string>
+    <string name="main_reading">Main Meter Reading</string>
+    <string name="room_meter_reading">Room Meter Reading</string>
+    <string name="edit_details">Edit Details</string>
+    <string name="room_number">Room Number</string>
+    <string name="calculate_rent">Calculate Rent</string>
+    <string name="rent_history">Rent History</string>
+    <string name="prev_main_meter_reading">Prev Main Meter Reading</string>
+    <string name="prev_room_meter_reading">Prev Room Meter Reading</string>
+    <string name="current_main_mtr">Current Main Meter Reading</string>
+    <string name="current_room_meter_reading">Current Room Meter Reading</string>
+    <string name="electricity_bill">Electricity Bill</string>
+    <string name="calculate_bill">Calculate Bill</string>
+    <string name="pay_rent">Pay Rent</string>
+</resources>

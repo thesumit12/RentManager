@@ -5,6 +5,7 @@
     <dimen name="nine">9dp</dimen>
     <dimen name="twelve">12dp</dimen>
     <dimen name="fifteen">15dp</dimen>
+    <dimen name="sixteen">16dp</dimen>
     <dimen name="eighteen">18dp</dimen>
     <dimen name="one_hundred_eighty">180dp</dimen>
 </resources>

@@ -7,6 +7,12 @@ import com.example.common.utils.ViewType
 import com.example.components.BaseActivity
 import com.example.components.BaseFragment
 import com.example.components.IRouter
+import com.example.plot.PayRentActivity
+import com.example.plot.ui.AddRoomActivity
+import com.example.plot.ui.CalculateRentActivity
+import com.example.plot.ui.PlotActivity
+import com.example.plot.ui.RoomDetailActivity
+import com.example.plot.viewModel.PayRentViewModel
 
 /**
 @file_name: Router.kt
@@ -54,7 +60,13 @@ class Router : IRouter {
      * @date 04/29/19
      */
     override fun routeTo(caller: BaseActivity<*, *>, destinationType: Int, bundle: Bundle) {
-
+        when(destinationType) {
+            ViewType.ADD_ROOM -> caller.startActivity(getIntent(caller, AddRoomActivity::class.java, bundle))
+            ViewType.PLOT -> caller.startActivity(getIntent(caller, PlotActivity::class.java, bundle))
+            ViewType.ROOM_DETAILS -> caller.startActivity(getIntent(caller, RoomDetailActivity::class.java, bundle))
+            ViewType.CALCULATE_RENT -> caller.startActivity(getIntent(caller, CalculateRentActivity::class.java, bundle))
+            ViewType.PAY_RENT -> caller.startActivity(getIntent(caller, PayRentActivity::class.java, bundle))
+        }
     }
 
     /**
@@ -67,7 +79,9 @@ class Router : IRouter {
      * @date 04/29/19
      */
     override fun routeTo(caller: Context, destinationType: Int, bundle: Bundle) {
-
+        when(destinationType) {
+            ViewType.PLOT -> caller.startActivity(getIntent(caller, PlotActivity::class.java, bundle))
+        }
     }
 
     /**

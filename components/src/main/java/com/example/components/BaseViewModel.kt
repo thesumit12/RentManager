@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.example.common.utils.Event
 import com.example.model.EventIdentifier
 import com.example.model.EventType
+import com.google.firebase.firestore.FirebaseFirestore
 
 /**
  * @brief: BaseviewModel class for all viewModels to extend
@@ -12,6 +13,10 @@ import com.example.model.EventType
  * @date: 04/25/2019
  */
 open class BaseViewModel : ViewModel() {
+
+    private val mFireStore: FirebaseFirestore by lazy {
+        FirebaseFirestore.getInstance()
+    }
 
     val onEventReceived: Event<EventType> = Event()
 
@@ -24,6 +29,8 @@ open class BaseViewModel : ViewModel() {
         val eventType = EventType(type, dataObj)
         onEventReceived(eventType)
     }
+
+    fun getFireStore(): FirebaseFirestore = mFireStore
 
     /**
      * define a property change callback which calls "callback " on change

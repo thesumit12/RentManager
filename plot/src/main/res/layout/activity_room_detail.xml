@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.plot.viewModel.RoomDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.RoomDetailActivity">
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/DetailTextHeading"
+            android:text="Name :"
+            android:layout_marginStart="@dimen/sixteen"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            style="@style/DetailTextDescription"
+            app:layout_constraintTop_toTopOf="@id/tv_name"
+            app:layout_constraintStart_toEndOf="@id/tv_mobileNo"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{viewModel.name}"
+            />
+
+        <TextView
+            android:id="@+id/tv_mobileNo"
+            style="@style/DetailTextHeading"
+            android:text="Mobile Number :"
+            android:layout_marginStart="@dimen/sixteen"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            style="@style/DetailTextDescription"
+            app:layout_constraintTop_toTopOf="@id/tv_mobileNo"
+            app:layout_constraintStart_toEndOf="@id/tv_mobileNo"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{viewModel.mobileNumber}"
+            />
+
+        <TextView
+            android:id="@+id/tv_members"
+            style="@style/DetailTextHeading"
+            android:text="Members :"
+            android:layout_marginStart="@dimen/sixteen"
+            app:layout_constraintTop_toBottomOf="@id/tv_mobileNo"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            style="@style/DetailTextDescription"
+            app:layout_constraintTop_toTopOf="@id/tv_members"
+            app:layout_constraintStart_toEndOf="@id/tv_mobileNo"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{viewModel.totalMembers}"
+            />
+
+        <TextView
+            android:id="@+id/tv_rent"
+            style="@style/DetailTextHeading"
+            android:text="Room Rent :"
+            android:layout_marginStart="@dimen/sixteen"
+            app:layout_constraintTop_toBottomOf="@id/tv_members"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            style="@style/DetailTextDescription"
+            app:layout_constraintTop_toTopOf="@id/tv_rent"
+            app:layout_constraintStart_toEndOf="@id/tv_mobileNo"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{viewModel.rent}"
+            />
+
+        <TextView
+            android:id="@+id/tv_balance"
+            style="@style/DetailTextHeading"
+            android:text="Balance :"
+            android:layout_marginStart="@dimen/sixteen"
+            app:layout_constraintTop_toBottomOf="@id/tv_rent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            style="@style/DetailTextDescription"
+            app:layout_constraintTop_toTopOf="@id/tv_balance"
+            app:layout_constraintStart_toEndOf="@id/tv_mobileNo"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{viewModel.balance}"
+            />
+
+        <TextView
+            android:id="@+id/comments_heading"
+            style="@style/DetailTextHeading"
+            android:layout_marginStart="@dimen/sixteen"
+            app:layout_constraintTop_toBottomOf="@id/tv_balance"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Comments :"
+            />
+
+        <TextView
+            android:id="@+id/tv_comments"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            android:layout_marginEnd="@dimen/sixteen"
+            android:layout_marginTop="@dimen/sixteen"
+            android:maxLines="4"
+            android:ellipsize="end"
+            android:text="@{viewModel.comment}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/comments_heading"/>
+
+        <Button
+            android:id="@+id/btn_calculate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/calculate_rent"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_comments"
+            app:layout_constraintEnd_toStartOf="@id/btn_history"
+            android:onClick="@{() -> viewModel.calculateRentClicked()}"/>
+
+        <Button
+            android:id="@+id/btn_history"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/rent_history"
+            android:layout_marginStart="@dimen/sixteen"
+            android:layout_marginEnd="@dimen/sixteen"
+            app:layout_constraintTop_toTopOf="@id/btn_calculate"
+            app:layout_constraintStart_toEndOf="@id/btn_calculate"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{() -> viewModel.rentHistoryClicked()}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

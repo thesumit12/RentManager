@@ -7,7 +7,7 @@ dependencies {
     implementation project(path: ':common')
 
     if(fullBuild) {
-        //implementation project(path: ':chat')
+        implementation project(path: ':plot')
         //implementation project(path: ':lists')
         //implementation project(path: ':map')
         //implementation project(path: ':authentication')

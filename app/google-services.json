@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "538020317406",
+    "firebase_url": "https://rentmanager-543ef.firebaseio.com",
+    "project_id": "rentmanager-543ef",
+    "storage_bucket": "rentmanager-543ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538020317406:android:11ced69fc0045040",
+        "android_client_info": {
+          "package_name": "com.example.rentmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538020317406-miiqvrqg4nuba36ighhqdlkb1569allk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rentmanager",
+            "certificate_hash": "6aed8798040ca5f5c8dd333b0bb2785a960112fe"
+          }
+        },
+        {
+          "client_id": "538020317406-ui1ngpcno835l9gov6b7le1qe29fm05i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbPXf0JuMd7TGJ2qMc9oC4oIj7BzdtzQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538020317406-ui1ngpcno835l9gov6b7le1qe29fm05i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

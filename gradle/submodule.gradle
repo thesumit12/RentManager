@@ -65,6 +65,7 @@ configurations.all {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk$rootProject.kotlinJDKVersion:latest.release"
+    implementation 'com.google.firebase:firebase-firestore:latest.release'
     testImplementation 'junit:junit:latest.release'
     androidTestImplementation 'androidx.test:runner:latest.release'
     androidTestImplementation 'androidx.test.espresso:espresso-core:latest.release'

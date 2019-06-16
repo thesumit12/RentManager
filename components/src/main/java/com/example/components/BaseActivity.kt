@@ -36,8 +36,8 @@ abstract class BaseActivity<T: ViewDataBinding, V : BaseViewModel>() : AppCompat
 
     abstract fun getBindingVariable(): Int
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         performDataBinding()
     }
 

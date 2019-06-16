@@ -7,5 +7,10 @@ package com.example.common.utils
  */
 object ViewType {
     //Enter activities you want to navigate
-    const val TEST_KEY: Int = 1
+    const val PLOT: Int = 1
+    const val ADD_ROOM: Int = 2
+    const val CALCULATE_RENT: Int = 3
+    const val RENT_HISTORY: Int = 4
+    const val PAY_RENT: Int = 5
+    const val ROOM_DETAILS: Int = 6
 }

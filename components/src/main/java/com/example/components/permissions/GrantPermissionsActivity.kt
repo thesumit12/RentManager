@@ -30,13 +30,13 @@ class GrantPermissionsActivity : AppCompatActivity() {
                 as ArrayList<String>
         setPermissionsGrantDescription(requestPermissionsEnum)
 
-        findViewById<Button>(R.id.btn_grant).setOnClickListener(DebounceClickListener(View.OnClickListener {
+        /*findViewById<Button>(R.id.btn_grant).setOnClickListener(DebounceClickListener(View.OnClickListener {
             val i = Intent(
                 Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
                 Uri.parse("package:" + "com.example.mvvm.app"))
             i.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
             startActivity(i)
-        }))
+        }))*/
     }
 
     override fun onResume() {

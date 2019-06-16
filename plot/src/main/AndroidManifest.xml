@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.plot">
+
+    <application>
+        <activity android:name=".PayRentActivity"></activity>
+        <activity android:name=".ui.CalculateRentActivity" />
+        <activity android:name=".ui.RoomDetailActivity" />
+        <activity android:name=".ui.AddRoomActivity" />
+        <activity android:name=".ui.Plot578Activity" />
+        <activity android:name=".ui.PlotActivity" />
+    </application>
+
+</manifest>

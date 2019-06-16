@@ -1,4 +1,4 @@
-package com.example.mvvmtemplete
+package com.example.rentmanager
 
 import org.junit.Test
 

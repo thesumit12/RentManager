@@ -6,5 +6,9 @@ package com.example.model
  * @date 04/25/2019
  */
 enum class EventIdentifier {
-    TEST_EVENT
+    ADD_ROOM,
+    ADD_ROOM_SUCCESS,
+    ADD_ROOM_FAILURE,
+    CALCULATE_RENT,
+    RENT_HISTORY
 }

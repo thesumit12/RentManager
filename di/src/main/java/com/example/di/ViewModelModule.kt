@@ -1,5 +1,7 @@
 package com.example.di
 
+import com.example.plot.viewModel.*
+import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
 /**
@@ -9,5 +11,9 @@ import org.koin.dsl.module.module
  */
 internal val viewModelModule = module {
     //initialize all viewmodule here
-    //viewModel { ViewModuleName(get(), get()) }
+    viewModel { PlotViewModel() }
+    viewModel { AddRoomViewModel() }
+    viewModel { RoomDetailViewModel() }
+    viewModel { CalculateRentViewModel() }
+    viewModel { PayRentViewModel() }
 }

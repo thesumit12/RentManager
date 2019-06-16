@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.plot.viewModel.AddRoomViewModel"/>
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ui.AddRoomActivity"
+            android:paddingBottom="@dimen/eighteen">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_roomNo"
+                style="@style/LayoutStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:errorEnabled="true"
+                errorText="@{viewModel.errorRoomNo}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextStyle"
+                    android:hint="@string/room_number"
+                    android:inputType="number"
+                    android:text="@={viewModel.roomNo}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_name"
+                style="@style/LayoutStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_roomNo"
+                app:errorEnabled="true"
+                errorText="@{viewModel.errorName}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextStyle"
+                    android:hint="@string/name"
+                    android:text="@={viewModel.name}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_age"
+                style="@style/LayoutStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_name"
+                app:errorEnabled="true"
+                errorText="@{viewModel.errorAge}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextStyle"
+                    android:hint="@string/age"
+                    android:inputType="number"
+                    android:text="@={viewModel.age}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_mobile"
+                style="@style/LayoutStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_age"
+                app:errorEnabled="true"
+                errorText="@{viewModel.errorMobileNo}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextStyle"
+                    android:hint="@string/mobile_no"
+                    android:inputType="phone"
+                    android:text="@={viewModel.mobileNo}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_total_member"
+                style="@style/LayoutStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_mobile"
+                app:errorEnabled="true"
+                errorText="@{viewModel.errorTotalMembers}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextStyle"
+                    android:hint="@string/total_members"
+                    android:inputType="number"
+                    android:text="@={viewModel.totalMembers}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_adults"
+                style="@style/LayoutStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_total_member"
+                app:errorEnabled="true"
+                errorText="@{viewModel.errorAdults}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextStyle"
+                    android:hint="@string/adults"
+                    android:inputType="number"
+                    android:text="@={viewModel.adults}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_rent"
+                style="@style/LayoutStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_adults"
+                app:errorEnabled="true"
+                errorText="@{viewModel.errorRent}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextStyle"
+                    android:hint="@string/room_rent"
+                    android:inputType="number"
+                    android:text="@={viewModel.rent}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_joinedOn"
+                style="@style/LayoutStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_rent"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextStyle"
+                    android:hint="@string/date"
+                    android:inputType="date"
+                    android:text="@={viewModel.joinedOn}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_balance"
+                style="@style/LayoutStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_joinedOn"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextStyle"
+                    android:hint="@string/balance"
+                    android:inputType="number"
+                    android:text="@={viewModel.balance}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_mainReading"
+                style="@style/LayoutStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_balance"
+                app:errorEnabled="true"
+                errorText="@{viewModel.errorMainMtrRdng}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextStyle"
+                    android:hint="@string/main_reading"
+                    android:inputType="number"
+                    android:text="@={viewModel.mainMtrRdng}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_roomReading"
+                style="@style/LayoutStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_mainReading"
+                app:errorEnabled="true"
+                errorText="@{viewModel.errorRoomMtrRdng}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextStyle"
+                    android:inputType="number"
+                    android:hint="@string/room_meter_reading"
+                    android:text="@={viewModel.roomMtrRdng}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_comment"
+                style="@style/LayoutStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_roomReading"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:hint="@string/comments"
+                    android:maxLines="4"
+                    android:ellipsize="end"
+                    android:textSize="18sp"
+                    android:text="@={viewModel.comment}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_comment"
+                android:layout_marginTop="@dimen/sixteen"
+                android:layout_marginStart="@dimen/eighteen"
+                android:layout_marginEnd="@dimen/eighteen"
+                android:paddingBottom="@dimen/eighteen"
+                android:text="@{viewModel.isAddRoom() ? @string/add_room : @string/edit_details}"
+                android:onClick="@{() -> viewModel.addRoom()}"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

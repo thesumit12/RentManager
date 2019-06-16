@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.plot.viewModel.CalculateRentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.CalculateRentActivity">
+
+        <TextView
+            android:id="@+id/tv_prev_main"
+            style="@style/DetailTextHeading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/prev_main_meter_reading"
+            android:layout_marginStart="@dimen/sixteen"
+            />
+        <TextView
+            style="@style/DetailTextDescription"
+            app:layout_constraintTop_toTopOf="@id/tv_prev_main"
+            app:layout_constraintStart_toEndOf="@id/tv_prev_room"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+            android:text="@{viewModel.prevMainMtrReading}"/>
+
+        <TextView
+            android:id="@+id/tv_prev_room"
+            style="@style/DetailTextHeading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_prev_main"
+            android:text="@string/prev_room_meter_reading"
+            android:layout_marginStart="@dimen/sixteen"
+            />
+        <TextView
+            style="@style/DetailTextDescription"
+            app:layout_constraintTop_toTopOf="@id/tv_prev_room"
+            app:layout_constraintStart_toEndOf="@id/tv_prev_room"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+            android:text="@{viewModel.prevRoomMtrReading}"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_current_main"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_prev_room"
+            android:layout_marginStart="@dimen/sixteen"
+            android:layout_marginEnd="@dimen/sixteen"
+            android:layout_marginTop="@dimen/sixteen">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:hint="@string/current_main_mtr"
+                android:text="@={viewModel.currentMainMtrRdng}"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_current_room"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_current_main"
+            android:layout_marginStart="@dimen/sixteen"
+            android:layout_marginEnd="@dimen/sixteen"
+            android:layout_marginTop="@dimen/sixteen">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:hint="@string/current_room_meter_reading"
+                android:text="@={viewModel.currentRoomMtrRdng}"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_electricityBill"
+            style="@style/DetailTextHeading"
+            android:text="@string/electricity_bill"
+            app:layout_constraintTop_toBottomOf="@id/layout_current_room"
+            app:layout_constraintStart_toStartOf="@id/tv_prev_room"/>
+
+        <TextView
+            style="@style/DetailTextDescription"
+            app:layout_constraintTop_toTopOf="@id/tv_electricityBill"
+            app:layout_constraintStart_toEndOf="@id/tv_prev_room"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+            android:text="@{viewModel.electricityBill}"/>
+
+        <Button
+            android:id="@+id/btn_calculate_bill"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/tv_prev_main"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/sixteen"
+            app:layout_constraintTop_toBottomOf="@id/tv_electricityBill"
+            android:layout_marginTop="@dimen/eighteen"
+            android:textSize="18sp"
+            android:text="@string/calculate_bill"
+            android:onClick="@{() -> viewModel.calculateElectricityBill()}"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/tv_prev_main"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/sixteen"
+            app:layout_constraintTop_toBottomOf="@id/btn_calculate_bill"
+            android:layout_marginTop="@dimen/eighteen"
+            android:textSize="18sp"
+            android:text="@string/pay_rent"
+            android:onClick="@{() -> viewModel.payRentClicked()}"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
