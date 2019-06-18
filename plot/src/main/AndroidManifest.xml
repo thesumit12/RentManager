@@ -3,7 +3,7 @@
     package="com.example.plot">
 
     <application>
-        <activity android:name=".PayRentActivity"></activity>
+        <activity android:name=".ui.PayRentActivity"></activity>
         <activity android:name=".ui.CalculateRentActivity" />
         <activity android:name=".ui.RoomDetailActivity" />
         <activity android:name=".ui.AddRoomActivity" />

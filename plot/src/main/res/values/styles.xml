@@ -32,4 +32,11 @@
         <item name="android:ellipsize">end</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="MyButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/eighteen</item>
+
+    </style>
 </resources>

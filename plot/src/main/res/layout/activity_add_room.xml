@@ -33,6 +33,7 @@
                     style="@style/EditTextStyle"
                     android:hint="@string/room_number"
                     android:inputType="number"
+                    android:enabled="@{viewModel.isAddRoom}"
                     android:text="@={viewModel.roomNo}"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -139,27 +140,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_joinedOn"
-                style="@style/LayoutStyle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layout_rent"
-                app:errorEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    style="@style/EditTextStyle"
-                    android:hint="@string/date"
-                    android:inputType="date"
-                    android:text="@={viewModel.joinedOn}"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layout_balance"
                 style="@style/LayoutStyle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layout_joinedOn"
+                app:layout_constraintTop_toBottomOf="@id/layout_rent"
                 app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText

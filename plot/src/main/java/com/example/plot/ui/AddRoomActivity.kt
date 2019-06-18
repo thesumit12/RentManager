@@ -19,9 +19,14 @@ class AddRoomActivity : BaseActivity<ActivityAddRoomBinding, AddRoomViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addRoomViewModel.plotType = intent.extras?.getString(Constant.PLOT_TYPE)!!
-        addRoomViewModel.isAddRoom.set(intent.extras?.getBoolean(Constant.ADD_ROOM) ?: true)
+        addRoomViewModel.isAddRoom = intent.extras?.getBoolean(Constant.ADD_ROOM) ?: true
         setActionBar()
         subscribeObservers()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        addRoomViewModel.isOnline = isNetworkAvailable()
     }
 
     override fun getLayoutId(): Int = R.layout.activity_add_room

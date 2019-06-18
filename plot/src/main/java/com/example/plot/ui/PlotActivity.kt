@@ -117,6 +117,6 @@ class PlotActivity : BaseActivity<ActivityPlotBinding, PlotViewModel>(), RoomSel
     private fun getNoOfColumns(): Int {
         val displayMetrics = resources.displayMetrics
         val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
-        return (screenWidthDp / 180 + 0.5).toInt()
+        return (screenWidthDp / 120 + 0.5).toInt()
     }
 }

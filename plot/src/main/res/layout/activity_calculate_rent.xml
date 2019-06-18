@@ -15,10 +15,22 @@
         tools:context=".ui.CalculateRentActivity">
 
         <TextView
+            android:id="@+id/tv_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="22sp"
+            android:layout_marginTop="@dimen/sixteen"
+            android:text="@{viewModel.currentMonth}"/>
+
+        <TextView
             android:id="@+id/tv_prev_main"
             style="@style/DetailTextHeading"
+            android:layout_marginTop="@dimen/sixteen"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_month"
             android:text="@string/prev_main_meter_reading"
             android:layout_marginStart="@dimen/sixteen"
             />
@@ -55,12 +67,15 @@
             app:layout_constraintTop_toBottomOf="@id/tv_prev_room"
             android:layout_marginStart="@dimen/sixteen"
             android:layout_marginEnd="@dimen/sixteen"
-            android:layout_marginTop="@dimen/sixteen">
+            android:layout_marginTop="@dimen/sixteen"
+            app:errorEnabled="true"
+            errorText="@{viewModel.errorMain}">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
+                android:inputType="number"
                 android:hint="@string/current_main_mtr"
                 android:text="@={viewModel.currentMainMtrRdng}"/>
 
@@ -75,12 +90,15 @@
             app:layout_constraintTop_toBottomOf="@id/layout_current_main"
             android:layout_marginStart="@dimen/sixteen"
             android:layout_marginEnd="@dimen/sixteen"
-            android:layout_marginTop="@dimen/sixteen">
+            android:layout_marginTop="@dimen/sixteen"
+            app:errorEnabled="true"
+            errorText="@{viewModel.errorRoom}">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
+                android:inputType="number"
                 android:hint="@string/current_room_meter_reading"
                 android:text="@={viewModel.currentRoomMtrRdng}"/>
 

@@ -6,6 +6,7 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import com.example.common.utils.Constant
 import com.example.components.BaseViewModel
+import com.example.components.common.DateUtil
 import com.example.logging.LogHelper
 import com.example.model.EventIdentifier
 import com.example.model.RoomDetails
@@ -19,7 +20,7 @@ class AddRoomViewModel : BaseViewModel() {
     val totalMembers = ObservableField<String>()
     val adults = ObservableField<String>()
     val rent = ObservableField<String>()
-    val joinedOn = ObservableField<String>()
+    var joinedOn = ""
     val balance = ObservableField<String>()
     val comment = ObservableField<String>()
     val mobileNo = ObservableField<String>()
@@ -38,7 +39,8 @@ class AddRoomViewModel : BaseViewModel() {
 
     val waitingDialogMessage = MutableLiveData<String>()
     lateinit var plotType: String
-    var isAddRoom = ObservableBoolean(true)
+    var isAddRoom = true
+    var isOnline: Boolean = false
 
     fun addRoom() {
         if (validateFields()) {
@@ -50,23 +52,30 @@ class AddRoomViewModel : BaseViewModel() {
             roomDetails.mobileNo = mobileNo.get()!!
             roomDetails.totalMembers = totalMembers.get()!!.toInt()
             roomDetails.adults = adults.get()!!.toInt()
-            roomDetails.joinedOn = joinedOn.get()
+            roomDetails.joinedOn = DateUtil.getCurrentMonth()
             roomDetails.balance = balance.get()!!.toFloat()
             roomDetails.mainMeterReading = mainMtrRdng.get()!!.toInt()
             roomDetails.roomMeterReading = roomMtrRdng.get()!!.toInt()
             roomDetails.comment = comment.get()
 
-            if (isAddRoom.get()) {
-                getFireStore().collection(plotType).document("Room${roomDetails.index}")
-                        .set(roomDetails, SetOptions.merge())
-                        .addOnSuccessListener {
-                            waitingDialogMessage.value = null
-                            triggerEvent(EventIdentifier.ADD_ROOM_SUCCESS)
-                        }.addOnFailureListener {exception->
-                            waitingDialogMessage.value = null
-                            LogHelper.e(exception.localizedMessage)
-                            triggerEvent(EventIdentifier.ADD_ROOM_FAILURE)
-                        }
+            if (isAddRoom) {
+                if (isOnline) {
+                    getFireStore().collection(plotType).document("Room${roomDetails.index}")
+                            .set(roomDetails, SetOptions.merge())
+                            .addOnSuccessListener {
+                                waitingDialogMessage.value = null
+                                triggerEvent(EventIdentifier.ADD_ROOM_SUCCESS)
+                            }.addOnFailureListener {exception->
+                                waitingDialogMessage.value = null
+                                LogHelper.e(exception.localizedMessage)
+                                triggerEvent(EventIdentifier.ADD_ROOM_FAILURE)
+                            }
+                }else{
+                    getFireStore().collection(plotType).document("Room${roomDetails.index}")
+                            .set(roomDetails, SetOptions.merge())
+                    triggerEvent(EventIdentifier.ADD_ROOM_SUCCESS)
+                }
+
             }else{
                 getFireStore().collection(plotType).document("Room${roomDetails.index}")
                         .update(mapOf(
@@ -77,11 +86,29 @@ class AddRoomViewModel : BaseViewModel() {
                                 "roomRent" to roomDetails.roomRent,
                                 "adults" to roomDetails.adults,
                                 "mainMeterReading" to roomDetails.mainMeterReading,
-                                "roomMeterReading" to roomDetails.roomMeterReading
+                                "roomMeterReading" to roomDetails.roomMeterReading,
+                                "balance" to roomDetails.balance,
+                                "comments" to roomDetails.comment
                         ))
             }
 
+            updateTotalAdults(roomDetails)
         }
+    }
+
+    private fun updateTotalAdults(roomDetails: RoomDetails) {
+        getFireStore().collection(Constant.PLOT).document(plotType).get()
+                .addOnSuccessListener {document->
+                    if (document != null) {
+                        val totalAdults = document.data?.get("adults") as Long
+
+                        getFireStore().collection(Constant.PLOT).document(plotType).set(
+                                hashMapOf(
+                                        "adults" to (totalAdults + roomDetails.adults)
+                                )
+                        )
+                    }
+                }
     }
 
     private fun validateFields() : Boolean {

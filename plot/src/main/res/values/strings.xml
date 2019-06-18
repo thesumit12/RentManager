@@ -24,4 +24,9 @@
     <string name="electricity_bill">Electricity Bill</string>
     <string name="calculate_bill">Calculate Bill</string>
     <string name="pay_rent">Pay Rent</string>
+    <string name="bill_error">Bill Error</string>
+    <string name="internet_error">Couldn\'t calculate bill please check your internet connection </string>
+    <string name="total_bill">Total Bill</string>
+    <string name="amount_to_pay">Amount to pay</string>
+    <string name="error_title">Error</string>
 </resources>

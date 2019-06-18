@@ -1,6 +1,8 @@
 package com.example.components
 
+import android.content.Context
 import android.content.pm.PackageManager
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.MenuItem
@@ -148,5 +150,10 @@ abstract class BaseActivity<T: ViewDataBinding, V : BaseViewModel>() : AppCompat
             !deniedPermissions.contains(permission)) {
             deniedPermissions.add(permission)
         }
+    }
+
+    fun isNetworkAvailable() : Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        return connectivityManager.activeNetworkInfo != null && connectivityManager.activeNetworkInfo.isConnected
     }
 }

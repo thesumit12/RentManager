@@ -52,7 +52,8 @@ class Notif {
          * @author: Sumit Lakra
          * @date: 04/25/2019
          */
-        fun ask(context: Context?, title: Int, msg: Int, buttonNegative: Int, buttonPositive: Int, buttonNeutral: Int, clickListener: OnButtonClickListener) {
+        fun ask(context: Context?, title: Int, msg: Int, buttonNegative: Int, buttonPositive: Int,
+                buttonNeutral: Int, clickListener: OnButtonClickListener) {
             if (context == null)
                 return
             val builder = AlertDialog.Builder(context)

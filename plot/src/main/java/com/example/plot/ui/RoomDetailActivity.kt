@@ -10,6 +10,8 @@ import com.example.plot.BR
 import com.example.plot.R
 import com.example.plot.databinding.ActivityRoomDetailBinding
 import com.example.plot.viewModel.RoomDetailViewModel
+import com.google.firebase.firestore.ListenerRegistration
+import com.google.firebase.firestore.QuerySnapshot
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -17,6 +19,7 @@ class RoomDetailActivity : BaseActivity<ActivityRoomDetailBinding, RoomDetailVie
 
     private val roomDetailViewModel: RoomDetailViewModel by viewModel()
     private val router: IRouter by inject()
+    private lateinit var roomDetailListener: ListenerRegistration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +28,16 @@ class RoomDetailActivity : BaseActivity<ActivityRoomDetailBinding, RoomDetailVie
         roomDetailViewModel.plotType = intent?.extras?.getString(Constant.PLOT_TYPE) ?: ""
         setActionBar()
         subscribeObservers()
+    }
 
-        roomDetailViewModel.getRoomDetails()
+    override fun onStart() {
+        super.onStart()
+        roomDetailListener = roomDetailViewModel.getRoomDetails()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        roomDetailListener.remove()
     }
 
     override fun getLayoutId(): Int = R.layout.activity_room_detail
@@ -57,6 +68,10 @@ class RoomDetailActivity : BaseActivity<ActivityRoomDetailBinding, RoomDetailVie
     private fun showCalculateRentScreen() {
         router.routeTo(this, ViewType.CALCULATE_RENT, Bundle().apply {
             putString(Constant.ROOM_NO, roomDetailViewModel.roomNumber)
+            putString(Constant.PLOT_TYPE, roomDetailViewModel.plotType)
+            putInt(Constant.MAIN_READING, roomDetailViewModel.mainMeterReading)
+            putInt(Constant.ROOM_READING, roomDetailViewModel.roomMeterReading)
+            putInt(Constant.ADULTS, roomDetailViewModel.adults)
         })
     }
 

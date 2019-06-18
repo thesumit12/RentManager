@@ -7,12 +7,11 @@ import com.example.common.utils.ViewType
 import com.example.components.BaseActivity
 import com.example.components.BaseFragment
 import com.example.components.IRouter
-import com.example.plot.PayRentActivity
+import com.example.plot.ui.PayRentActivity
 import com.example.plot.ui.AddRoomActivity
 import com.example.plot.ui.CalculateRentActivity
 import com.example.plot.ui.PlotActivity
 import com.example.plot.ui.RoomDetailActivity
-import com.example.plot.viewModel.PayRentViewModel
 
 /**
 @file_name: Router.kt
